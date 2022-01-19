@@ -1,5 +1,5 @@
 import os
-from sqlalchemy import Column, String, Integer, create_engine
+from sqlalchemy import Column, String, Integer, create_engine, ForeignKey
 from flask_sqlalchemy import SQLAlchemy
 import json
 
@@ -32,7 +32,8 @@ class Question(db.Model):
   id = Column(Integer, primary_key=True)
   question = Column(String)
   answer = Column(String)
-  category = Column(String)
+  # category = Column(String)
+  category =Column(Integer, ForeignKey('categories.id'))
   difficulty = Column(Integer)
 
   def __init__(self, question, answer, category, difficulty):
