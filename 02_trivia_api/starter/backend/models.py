@@ -2,13 +2,10 @@ import os
 from sqlalchemy import Column, String, Integer, create_engine, ForeignKey
 from flask_sqlalchemy import SQLAlchemy
 import json
+from config import DatabaseURI
 
-
-# TODO: don't forget to create the trivia database in the psql
-database_name = "trivia"
-# TODO: don't forget to replace <password> with your postgres password
-database_path = 'postgresql://postgres:<password>@localhost:5432/{}'.format(database_name)
-
+# create the trivia database in the psql
+database_path = DatabaseURI.SQLALCHEMY_DATABASE_URI
 db = SQLAlchemy()
 
 '''
