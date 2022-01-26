@@ -106,6 +106,9 @@ class QuestionView extends Component {
           type: "DELETE",
           success: (result) => {
             this.getQuestions();
+            this.setState({
+              question_id: result.question_id
+            })
           },
           error: (error) => {
             alert('Unable to load questions. Please try your request again')
